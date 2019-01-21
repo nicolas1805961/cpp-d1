@@ -7,6 +7,8 @@ DirectoryInfo* read_info(std::ifstream& file)
     std::string owner;
     auto i = 0;
     std::string token;
+    if (file.eof())
+        return nullptr;
     while (file >> token)
     {
         i++;
@@ -25,6 +27,7 @@ DirectoryInfo* read_info(std::ifstream& file)
                 owner = token;
                 break;
             default:
+                break;
                 std::cout << "error" << "\n";
                 break;
         }
